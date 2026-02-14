@@ -56,7 +56,7 @@ public class SecurityConfigurations {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:4200")); // Libera o Angular
+        configuration.setAllowedOrigins(List.of("https://tracker-arcano-frontend.vercel.app/")); // Libera o Angular
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Libera os verbos
         configuration.setAllowedHeaders(List.of("*")); // Libera os cabeçalhos (inclusive o de Token)
         
