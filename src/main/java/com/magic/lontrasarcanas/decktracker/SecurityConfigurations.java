@@ -35,13 +35,20 @@ public class SecurityConfigurations {
             .cors(Customizer.withDefaults())
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(req -> {
+                // Permite o Preflight (OPTIONS) para todas as rotas
+                req.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll(); 
+                
                 req.requestMatchers(HttpMethod.POST, "/login").permitAll();
-                req.requestMatchers(HttpMethod.POST, "/usuarios").permitAll(); // Libere a rota de cadastro aqui!
+                req.requestMatchers(HttpMethod.POST, "/usuarios").permitAll();
+                
+                // Garante que qualquer sub-rota de decks exija login
+                req.requestMatchers("/decks/**").authenticated(); 
+                
                 req.anyRequest().authenticated();
             })
             .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
             .build();
-}
+    }
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
