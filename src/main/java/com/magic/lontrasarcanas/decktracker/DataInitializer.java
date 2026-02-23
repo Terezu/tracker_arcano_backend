@@ -48,8 +48,14 @@ public class DataInitializer implements CommandLineRunner {
             user3.setSenha(passwordEncoder.encode("profissional_do_combo"));
             user3.setRole("ROLE_USER");
 
+            // 5. USUÁRIO 4
+            Usuario user4 = new Usuario();
+            user4.setLogin("leo_barros");
+            user4.setSenha(passwordEncoder.encode("destruidor_das_safadinhas"));
+            user4.setRole("ROLE_USER");
+
             // Salva todo mundo de uma vez no banco
-            usuarioRepository.saveAll(List.of(admin, user1, user2, user3));
+            usuarioRepository.saveAll(List.of(admin, user1, user2, user3, user4));
             System.out.println("🧙‍♂️ Magic: Usuários iniciais criados com sucesso no banco de dados!");
         }
     }
