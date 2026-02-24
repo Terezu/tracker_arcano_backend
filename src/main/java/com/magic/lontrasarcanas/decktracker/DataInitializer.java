@@ -62,7 +62,7 @@ public class DataInitializer implements CommandLineRunner {
 
         // Lógica: Para cada usuário na lista, só salva se ele NÃO existir no banco
         listaDesejada.forEach(u -> {
-            if (!usuarioRepository.existByLogin(u.getLogin())) {
+            if (!usuarioRepository.existsByLogin(u.getLogin())) {
                 usuarioRepository.save(u);
                 System.out.println("✅ Usuário criado: " + u.getLogin());
             }
