@@ -50,8 +50,8 @@ public class DataInitializer implements CommandLineRunner {
 
             // 5. USUÁRIO 4
             Usuario user4 = new Usuario();
-            user4.setLogin("leo_barros");
-            user4.setSenha(passwordEncoder.encode("destruidor_das_safadinhas"));
+            user4.setLogin("leonardo_barros");
+            user4.setSenha(passwordEncoder.encode("destruidor_guiado_pelas_safadinhas"));
             user4.setRole("ROLE_USER");
 
             // Salva todo mundo de uma vez no banco
