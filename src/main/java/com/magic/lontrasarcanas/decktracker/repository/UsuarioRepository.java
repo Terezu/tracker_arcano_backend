@@ -6,6 +6,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     
+    // Verifica se existe um usuário com o login fornecido
+    boolean existByLogin(String login);
+
     // O Spring Security precisa buscar o usuário pelo login para validar a senha
     UserDetails findByLogin(String login);
 }
