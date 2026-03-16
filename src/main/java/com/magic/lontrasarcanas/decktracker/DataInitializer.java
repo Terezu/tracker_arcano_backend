@@ -60,6 +60,13 @@ public class DataInitializer implements CommandLineRunner {
         user4.setRole("ROLE_USER");
         listaDesejada.add(user4);
 
+        // 6. USUÁRIO 5 (O novo integrante!)
+        Usuario user5 = new Usuario();
+        user5.setLogin("matheus_weber");
+        user5.setSenha(passwordEncoder.encode("amigo_dos_elfos"));
+        user5.setRole("ROLE_USER");
+        listaDesejada.add(user5);
+
         // Lógica: Para cada usuário na lista, só salva se ele NÃO existir no banco
         listaDesejada.forEach(u -> {
             if (!usuarioRepository.existsByLogin(u.getLogin())) {
